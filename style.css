@@ -1,0 +1,437 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Raleway;
+  background: #dcc9a7;
+  color: #333;
+}
+
+/*---------------------- Footer Atas ----------------------------*/
+.navbar {
+  position: fixed;
+  font-family: Raleway;
+  top: 0;
+  width: 100%;
+  background: #ede2cca9; /* transparan footer */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  backdrop-filter: blur(6px); /* efek blur lembut */
+  z-index: 1000;
+  color: #8A724C;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color:#3E2F1C;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* jarak antara logo dan teks */
+}
+
+.logo-img {
+  width: 35px;  /* ukuran logo bisa diubah sesuai kebutuhan */
+  height: 35px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3E2F1C;
+  font-weight: 1000;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #8A724C;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  font-family: Raleway;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Konten */
+.content {
+  margin-top: 100px;
+  font-family: Raleway;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #8A724C;
+  backdrop-filter: blur(6px);
+  color: #3E2F1C;
+  font-size: 0.9rem;
+  margin-top: 60px; /* memberi jarak dari konten atas */
+}
+
+
+/* Responsif */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 71px;
+    right: 0;
+    align-items: center;
+    background: #ede2cca9; /* Warna Hamburger */
+    width: 200px;
+    text-align: right;
+    text-emphasis-position: center;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+/*---------------------- Footer Atas ----------------------------*/
+
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  background-color: #dcc9a7;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.btn-produk {
+  display: inline-block;
+  background-color: #dcc9a7;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-produk:hover {
+  background-color: #ede2cc;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 71px;
+    right: 0;
+    background: #ede2cca9;
+    width: 200px;
+    text-align: right;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hero {
+    min-height: 50vh;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Kategori */
+/* ------------------ KATEGORI ------------------ */
+.categories {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #dcc9a7;
+}
+
+.categories h2 {
+  font-size: 2rem;
+  font-family: Raleway;
+  margin-bottom: 35px;
+  margin-top: -85px;
+  color: #000000;
+}
+
+/* Grid kategori FIX 4 kolom */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* selalu 4 kolom */
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Item kategori */
+.category-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.category-item img {
+  width: 100%;
+  max-width: 300px; /* sesuaikan ukuran */
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.category-item img:hover {
+  transform: scale(1.05);
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 480px) {
+  .category-item img {
+    max-width: 80px; /* lebih kecil di HP tapi tetap 4 kolom */
+  }
+}
+
+
+/* ---------------- Section Kenali ---------------- */
+.SectionKenali {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.Kenali {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  border: none;
+}
+
+/* ---------------- Section Info ---------------- */
+.SectionInfo {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.Info {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  border: none;
+  margin-top: 40px;
+}
+
+/* ---------------- Responsif ---------------- */
+@media (max-width: 768px) {
+  .Kenali,
+  .Info {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Kenali,
+  .Info {
+    margin-top: 10px;
+  }
+}
+
+/*---------------------- Footer Bawah ----------------------------*/
+footer {
+  background: url("bg/bg.jpg") center/cover no-repeat; /* 🔹 Ganti dengan path fotomu */
+  color: #3E2F1C;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Lapisan gelap agar teks tetap terbaca */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Semua isi footer di atas lapisan gelap */
+.footer-content,
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-info,
+.footer-contact {
+  flex: 1 1 45%;
+  margin-bottom: 20px;
+}
+
+.footer-info h3,
+.footer-contact h3 {
+  color: #3E2F1C;
+  margin: 8px 0;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.footer-contact i {
+  font-size: 18px;
+  min-width: 20px;
+}
+
+.footer-contact a {
+  color: #3E2F1C;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #3E2F1C;
+  padding-top: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Responsif untuk HP & Tablet */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 480px) {
+  footer {
+    padding: 30px 15px;
+    background-position: center;
+    background-size: cover;
+  }
+}
+/*---------------------- Footer Bawah ----------------------------*/
+/* Tombol WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #20ba5a;
+}

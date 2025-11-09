@@ -1,0 +1,315 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Raleway;
+  background: #dcc9a7;
+  color: #333;
+}
+
+/*---------------------- Footer Atas ----------------------------*/
+.navbar {
+  position: fixed;
+  font-family: Raleway;
+  top: 0;
+  width: 100%;
+  background: #ede2cca9; /* transparan footer */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  backdrop-filter: blur(6px); /* efek blur lembut */
+  z-index: 1000;
+  color: #8A724C;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color:#3E2F1C;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* jarak antara logo dan teks */
+}
+
+.logo-img {
+  width: 35px;  /* ukuran logo bisa diubah sesuai kebutuhan */
+  height: 35px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3E2F1C;
+  font-weight: 1000;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #8A724C;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  font-family: Raleway;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Konten */
+.content {
+  margin-top: 100px;
+  font-family: Raleway;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #8A724C;
+  backdrop-filter: blur(6px);
+  color: #3E2F1C;
+  font-size: 0.9rem;
+  margin-top: 60px; /* memberi jarak dari konten atas */
+}
+
+
+/* Responsif */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 71px;
+    right: 0;
+    align-items: center;
+    background: #ede2cca9; /* Warna Hamburger */
+    width: 200px;
+    text-align: right;
+    text-emphasis-position: center;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+/*---------------------- Footer Atas ----------------------------*/
+
+/*---------------------- Tentang Kami ----------------------------*/
+.about-section {
+  background: #dcc9a7;
+  color: #3E2F1C;
+  width: 100%;
+  padding: 60px 20px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #3E2F1C;
+}
+
+.about-image {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: -50px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* selalu 4 kolom */
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.about-section h2 {
+  margin-top: 25px;
+  font-size: 30px;
+}
+/* Item kategori */
+.category-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.category-item img {
+  width: 100%;
+  max-width: 300px; /* sesuaikan ukuran */
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+/* Button */
+.btn-rent {
+  display: block;           /* ubah dari inline-block ke block */
+  margin: 20px auto 0;      /* biar ke tengah otomatis */
+  background: #b99668;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 100%;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+
+.btn-rent:hover {
+  background: #d1bfa0;
+  color: #000;
+  transform: translateY(-2px);
+}
+/*---------------------- Footer Bawah ----------------------------*/
+footer {
+  background: url("../bg/bg.jpg") center/cover no-repeat; /* 🔹 Ganti dengan path fotomu */
+  color: #3E2F1C;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Lapisan gelap agar teks tetap terbaca */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Semua isi footer di atas lapisan gelap */
+.footer-content,
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-info,
+.footer-contact {
+  flex: 1 1 45%;
+  margin-bottom: 20px;
+}
+
+.footer-info h3,
+.footer-contact h3 {
+  color: #3E2F1C;
+  margin: 8px 0;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.footer-contact i {
+  font-size: 18px;
+  min-width: 20px;
+}
+
+.footer-contact a {
+  color: #3E2F1C;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #3E2F1C;
+  padding-top: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Responsif untuk HP & Tablet */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 480px) {
+  footer {
+    padding: 30px 15px;
+    background-position: center;
+    background-size: cover;
+  }
+}
+/*---------------------- Footer Bawah ----------------------------*/
+
+/*---------------------- Gelembung WhatsApp  ----------------------*/
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #20ba5a;
+}
+/*---------------------- Gelembung WhatsApp  ----------------------*/
