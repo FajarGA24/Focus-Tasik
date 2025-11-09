@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus Tasik</title>
+  <link rel="stylesheet" href="../css/stylecanon.css" />
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+</head>
+<body>
+<!---------------------- Footer Atas ---------------------------->
+     <nav class="navbar">
+    <div class="logo">
+  <img src="../logo.png" alt="Logo Focus Tasik" class="logo-img">
+  Focus Tasikmalaya
+</div>
+    <ul class="nav-links" id="navLinks">
+     <li><a href="../index.html">Beranda</a></li>
+      <li><a href="../html/tentang.html">Tentang</a></li>
+      <li><a href="../html/produk.html">Produk</a></li>
+      <li><a href="../html/kontak.html">Kontak</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      ☰
+    </div>
+  </nav>
+
+    <!-- Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+<!---------------------- Footer Atas ---------------------------->
+
+<!---------------------- Slide Banner ---------------------------->
+<section class="banner-produk">
+  <div class="banner-slide active">
+    <img src="../slide/1.jpg" alt="Produk 1">
+  </div>
+  <div class="banner-slide">
+    <img src="../slide/2.png" alt="Produk 2">
+  </div>
+  <div class="banner-slide">
+    <img src="../slide/3.png" alt="Produk 3">
+  </div>
+
+  <script>
+    let currentBanner = 0;
+    const banners = document.querySelectorAll('.banner-slide');
+
+    function showBanner(index) {
+      banners.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextBanner() {
+      currentBanner = (currentBanner + 1) % banners.length;
+      showBanner(currentBanner);
+    }
+
+    setInterval(nextBanner, 4000);
+  </script>
+</section>
+<!---------------------- Slide Banner ---------------------------->
+<!---------------------- Foto Produk ---------------------------->
+<section class="produk-gallery">
+  <h2>KAMERA SONY</h2>
+
+  <!-- 🔹 Filter Container (Urutkan + Cari) -->
+  <div class="filter-container">
+  <div class="sort-container">
+    <label for="sort">Urutkan:</label>
+    <select id="sort">
+      <option value="az">A - Z</option>
+      <option value="za">Z - A</option>
+      <option value="murah">Harga Termurah</option>
+      <option value="mahal">Harga Termahal</option>
+    </select>
+  </div>
+
+  <div class="search-container">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="search" placeholder="Cari produk...">
+  </div>
+</div>
+
+
+ <div class="gallery-container" id="gallery">
+  <a href="sony/1.html" class="produk-link">
+    <div class="produk-item">
+      <img src="../img/sony/Sony A6000.jpg" alt="Canon 80D">
+      <div class="produk-info">
+        <h3>Sony A6000</h3>
+        <p>Rp 100.000 / hari</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="sony/2.html" class="produk-link">
+    <div class="produk-item">
+      <img src="../img/sony/Sony A6400.jpg" alt="Canon 1100D">
+      <div class="produk-info">
+        <h3>Sony A6400</h3>
+        <p>Rp 130.000 / hari</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="sony/3.html" class="produk-link">
+    <div class="produk-item">
+      <img src="../img/sony/Sony A6500.jpg" alt="Canon 700D">
+      <div class="produk-info">
+        <h3>Sony A6500</h3>
+        <p>Rp 150.000 / hari</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="sony/4.html" class="produk-link">
+    <div class="produk-item">
+      <img src="../img/sony/Sony A7 Mrk II.jpg" alt="Canon 80D">
+      <div class="produk-info">
+        <h3>Sony A7 Mrk II</h3>
+        <p>Rp 150.000 / hari</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="sony/5.html" class="produk-link">
+    <div class="produk-item">
+      <img src="../img/sony/Sony A7C.jpg" alt="Canon 1100D">
+      <div class="produk-info">
+        <h3>Sony A7C</h3>
+        <p>Rp 300.000 / hari</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="sony/6.html" class="produk-link">
+    <div class="produk-item">
+      <img src="../img/sony/Sony A7IV.jpg" alt="Canon 700D">
+      <div class="produk-info">
+        <h3>Sony A7IV</h3>
+        <p>Rp 500.000 / hari</p>
+      </div>
+    </div>
+  </a>
+
+  <!-- Tambahkan produk lain dengan format serupa -->
+</div>
+
+  <div id="no-product" style="display:none; margin-top:20px; color:#ff0000; font-weight:bold; font-size:18px;">
+  Produk tidak tersedia
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sortSelect = document.getElementById("sort");
+  const searchInput = document.getElementById("search");
+  const produkContainer = document.getElementById("gallery");
+  const noProduct = document.getElementById("no-product");
+
+  // Salin semua produk ke array awal
+  const allProdukItems = Array.from(produkContainer.querySelectorAll(".produk-item")).map(item => item.cloneNode(true));
+
+  function filterAndSort() {
+    const query = searchInput.value.toLowerCase();
+    const sortValue = sortSelect.value;
+
+    // Filter produk berdasarkan nama
+    let filtered = allProdukItems.filter(item => {
+      const name = item.querySelector("h3").textContent.toLowerCase();
+      return name.includes(query);
+    });
+
+    // Sort produk
+    if (sortValue === "az") {
+      filtered.sort((a, b) => a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent));
+    } else if (sortValue === "za") {
+      filtered.sort((a, b) => b.querySelector("h3").textContent.localeCompare(a.querySelector("h3").textContent));
+    } else if (sortValue === "murah") {
+      filtered.sort((a, b) => parseInt(a.querySelector("p").textContent.replace(/\D/g, "")) - parseInt(b.querySelector("p").textContent.replace(/\D/g, "")));
+    } else if (sortValue === "mahal") {
+      filtered.sort((a, b) => parseInt(b.querySelector("p").textContent.replace(/\D/g, "")) - parseInt(a.querySelector("p").textContent.replace(/\D/g, "")));
+    }
+
+    // Update tampilan
+    produkContainer.innerHTML = "";
+    if (filtered.length > 0) {
+      filtered.forEach(item => produkContainer.appendChild(item));
+      noProduct.style.display = "none"; // sembunyikan teks
+    } else {
+      noProduct.style.display = "block"; // tampilkan teks
+    }
+  }
+
+  // Event listener aktif
+  searchInput.addEventListener("input", filterAndSort);
+  sortSelect.addEventListener("change", filterAndSort);
+});
+</script>
+<!---------------------- Foto Produk ---------------------------->
+
+
+
+
+
+<!---------------------- Footer Bawah ---------------------------->
+<footer>
+  <div class="footer-content">
+    <div class="footer-info">
+      <h3>Focus Tasik</h3>
+      <p>
+        Jasa Photo & Video | Live Multicamera | Wedding Video Cinema<br>
+        Rental & Service: Kamera, Lensa, Drone, Laptop, PC<br>
+        Install Software & Hardware | Cetak & Perbesar Foto
+      </p>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Kontak Kami</h3>
+      <p><i class="fa-solid fa-location-dot" style="color: #3E2F1C;"></i> Jl. BKR No.77C, Kahuripan, Kec. Tawang, Kab. Tasikmalaya, Jawa Barat 46115, Indonesia</p>
+      <p><i class="fa-solid fa-phone-volume" style="color: #3E2F1C;"></i> Hanphone : 
+        <a href="tel:+6281234567890">+62 812-3456-7890</a>
+      </p>
+      <p><i class="fa-solid fa-envelope" style="color: #3E2F1C;"></i>  Email : 
+        <a href="mailto:focus.tasik@gmail.com">focus.tasik@gmail.com</a>
+      </p>
+      <p><i class="fa-brands fa-whatsapp" style="color: #3E2F1C;"></i> WhatsApp :
+        <a href="https://wa.me/6281224712573" target="_blank">+6281224712573</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 FOCUS TASIKMALAYA. All Rights Reserved.</p>
+  </div>
+</footer>
+<!---------------------- Footer Bawah ---------------------------->
+
+<!---------------------- Gelembung WhatsApp  ---------------------->
+    <a href="https://wa.me/6281224712573?text=Halo%20Focus%20Tasik!%20Saya%20ingin%20menyewa%20kamera."
+    class="whatsapp-float" target="_blank" aria-label="Chat via WhatsApp">
+    <img src="../wa.png" alt="WhatsApp">
+    </a>
+<!---------------------- Gelembung WhatsApp  ---------------------->
+</body>
+</html>
